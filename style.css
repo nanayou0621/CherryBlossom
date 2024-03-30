@@ -42,7 +42,7 @@ html {
 }
 
 .hero-text h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin-bottom: 0.5em;
 }
 
@@ -128,8 +128,8 @@ html {
 
 .articlecard-img {
   position: relative;
-  width: 300px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   margin-top: 16px;
 }
@@ -143,12 +143,6 @@ html {
   transform: scale(1.1);
 }
 
-.home_wrapper div img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .home_wrapper h1{
   color: #b05615;
 }
@@ -160,22 +154,21 @@ html {
 .home_wrapper ul li {
   text-align: center;
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   padding: 8px;
 }
 
 /* .articlecard-imgを中央揃えにするための追加スタイル */
 .articlecard-img {
   display: inline-block; 
-  margin: 0 auto; 
+  margin: 8px auto;
+}
+.articlecard-img img {
+  max-width: 100%;
+  height: auto;
+  padding: 8px;
 }
 
-/* 既存の.articlecard-imgに適用されているスタイル */
-.articlecard-img img {
-  width: 100%; 
-  height: auto; 
-  object-fit: cover; 
-}
 .map-container{
   width: 100%;
   height: 100%;
@@ -351,8 +344,52 @@ html {
   opacity: 1;
   z-index: 10;
 }
+.home_text {
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-/* menu.html */
+.home_text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.home_text li + li {
+  margin-top: 20px;
+}
+
+.home_text h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.home_text p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.home_text a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.home_text a:hover {
+  color: #0056b3;
+}
+
+.bi-arrow-right-square-fill {
+  color: #007bff;
+  margin-right: 4px;
+}
+.home_text_message iframe {
+  width: 100%;
+  height: 100%;
+}
+/******************* menu.html********************/
 .main_container h1 {
   font-size: 20px;
   color: rgb(159, 138, 138);
@@ -371,29 +408,30 @@ html {
   writing-mode: vertical-rl;
   text-orientation: upright;
   height: 200px;
-  /* 高さを定義 */
   width: 100%;
-  /* 幅を100%にする（親要素に対して） */
   margin: 20px 0;
-  /* 上下のマージンを20pxに */
   padding: 10px 0;
-  /* 内側の余白を全方向に10px */
   line-height: 1;
-  /* 行間を広げる */
   box-sizing: border-box;
-  /* paddingとborderを要素のサイズに含める */
   text-align: initial;
 }
 
 .vertical-text img {
-  height: 100%;
+  writing-mode: horizontal-tb;
+  height: auto; /* 画像の高さを自動調整 */
+  width: 68%;  /* 画像の幅を親要素に対して50%に設定 */
+  max-height: 200px; /* 画像の最大高さを200pxに増やす（必要に応じて調整） */
+  display: block;
+  margin: 0 auto; /* 上下マージンを0にし、左右マージンをautoで中央揃え */
 }
+
 
 .vertical-text h2 {
   margin: 0;
   font-size: 14px;
 }
-.local h1{
+
+.allpage_title{
   font-size: 35px;
   display: inline-block;
   overflow: hidden;
@@ -452,9 +490,93 @@ footer {
   padding: 20px;
   background-color: #f2f2f2;
 }
+/********************* access.html **********************************/
+.access_wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.page-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.access_details h2 {
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.access_details p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.access_details strong {
+  color: #333;
+  font-weight: bold;
+}
+
+
+/********************* contact.html **********************************/
+.contact_container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  color: #333;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-top: 10px;
+  color: #666;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box; /* 入力欄のサイズを調整するため */
+}
+textarea {
+  resize: vertical; /* ユーザーが縦方向にリサイズ可能 */
+}
+.contact_container button {
+  width: 100px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+/******************* パソコン用 ******************/
 @media (min-width: 768px) {
   .home_container{
-    max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
       /* display: grid;
@@ -464,14 +586,15 @@ footer {
   .content {
     flex: 1; /* フレックスアイテムの幅が均等に */
 }
-.home_wrapper ul{
+.home_article{
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
   padding: 8px;
   margin: 0;
+  align-items: center;
 }
-.home_wrapper li{
+.home_article p{
   writing-mode: vertical-rl;
   text-align: center;
 }
@@ -479,18 +602,16 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: flex-start; /* 縦方向の揃え位置 */
+  
 }
 .home_text li{
   writing-mode:inherit;
 }
-.content {
-  flex: 1; 
+.home_text_message{
+  flex: 1;
+  height: 443px;
 }
-.map-container{
-  width: 600px;
-  height: 350px;
-  padding: 8px;
-}
+
   .wrapper {
     height: 110vh;
     /* ビューポートの高さに合わせる */
@@ -532,7 +653,6 @@ footer {
 
 /* メニューページ */
   .main_container {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     display: grid;
